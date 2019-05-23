@@ -1,5 +1,3 @@
-// @flow
-
 import md5 from 'js-md5';
 
 /**
@@ -12,17 +10,11 @@ import md5 from 'js-md5';
  * @param {string} [avatarService.urlSuffix] - URL Suffix of the avatar service.
  * @returns {string} - Avatar URL.
  */
-export function getAvatarURL({ avatarID, email, id }: {
-        avatarID: string,
-        email: string,
-        id: string
-}, { urlPrefix, urlSuffix }: {
-        urlPrefix: string,
-        urlSuffix: string
-} = {
-    urlPrefix: 'https://abotars.jitsi.net/meeple/',
-    urlSuffix: ''
-}) {
+export function getAvatarURL({ avatarID, email, id },
+    { urlPrefix, urlSuffix } = {
+        urlPrefix: 'https://abotars.jitsi.net/meeple/',
+        urlSuffix: ''
+    }) {
     return getGravatarURL(email)
         || generateAvatarURL(avatarID || id, urlPrefix, urlSuffix);
 }
@@ -35,7 +27,7 @@ export function getAvatarURL({ avatarID, email, id }: {
  * @param {string} urlSuffix - URL Suffix of the avatar service to be used.
  * @returns {string}
  */
-function generateAvatarURL(key: string, urlPrefix: string, urlSuffix: string) {
+function generateAvatarURL(key, urlPrefix, urlSuffix) {
     return urlPrefix + md5.hex(key.trim().toLowerCase()) + urlSuffix;
 }
 
@@ -45,7 +37,7 @@ function generateAvatarURL(key: string, urlPrefix: string, urlSuffix: string) {
  * @param {string} email - Email id for which we need gravatar url.
  * @returns {string} - Gravatar URL.
  */
-function getGravatarURL(email: string) {
+function getGravatarURL(email) {
     const urlPrefix = 'https://www.gravatar.com/avatar/';
     const urlSuffix = '?d=wavatar&size=200';
 
@@ -61,6 +53,6 @@ function getGravatarURL(email: string) {
  * @param {string} email - Email id to be checked.
  * @returns {boolean}
  */
-function isValidEmail(email: string) {
+function isValidEmail(email) {
     return email && email.indexOf('@') > 0;
 }

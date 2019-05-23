@@ -2,22 +2,26 @@
 // this values needs to be as they are becuse they are going to analytics,
 // callstats, etc.
 
-export const CHROME = 'chrome';
+export default {
 
-export const OPERA = 'opera';
+    CHROME: 'chrome',
 
-export const FIREFOX = 'firefox';
+    OPERA: 'opera',
 
-export const INTERNET_EXPLORER = 'iexplorer';
+    FIREFOX: 'firefox',
 
-export const EDGE = 'edge';
+    INTERNET_EXPLORER: 'iexplorer',
 
-export const SAFARI = 'safari';
+    EDGE: 'edge',
 
-export const NWJS = 'nwjs';
+    SAFARI: 'safari',
 
-export const ELECTRON = 'electron';
+    NWJS: 'nwjs',
 
-export const REACT_NATIVE = 'react-native';
+    ELECTRON: 'electron',
 
-export const UNKNOWN = 'unknown';
+    REACT_NATIVE: 'react-native',
+
+    UNKNOWN: 'unknown',
+
+};
