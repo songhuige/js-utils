@@ -40,7 +40,7 @@ function _detectChromiumBased() {
     const userAgent = navigator.userAgent;
 
     if (Boolean(window.chrome)
-            && !userAgent.match(/Edge/) && userAgent.match(/Chrome/)) {
+        && !userAgent.match(/Edge/) && userAgent.match(/Chrome/)) {
         const version = userAgent.match(/Chrome\/([\d.]+)/)[1];
 
         return {
@@ -161,7 +161,7 @@ function _detect() {
 /**
  * Implements browser detection.
  */
-export default class BrowserDetection {
+class BrowserDetection {
     /**
      * Creates new BrowserDetection instance.
      *
@@ -295,7 +295,7 @@ export default class BrowserDetection {
      */
     compareVersion(version) {
         if (this._version) {
-            return bowser.compareVersions([ String(version), this._version ]);
+            return bowser.compareVersions([String(version), this._version]);
         }
     }
 
@@ -338,3 +338,5 @@ export default class BrowserDetection {
         return this.compareVersion(version) === 0;
     }
 }
+BrowserDetection.compareVersions = bowser.compareVersions;
+export default BrowserDetection;

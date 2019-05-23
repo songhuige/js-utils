@@ -1,2 +1,3 @@
+import * as Browsers from './browsers'
 export { default as BrowserDetection } from './BrowserDetection';
-export { default as browsers } from './browsers';
+export let browsers = Browsers;
